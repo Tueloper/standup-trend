@@ -1,6 +1,10 @@
 const STANDUP = require('./../models/task');
 
 module.exports = {
+  testing(req, res) {
+    res.send('This is an Express App')
+  },
+
   async createTask(req, res) {
     
     try {
