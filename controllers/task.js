@@ -1,4 +1,6 @@
 const STANDUP = require('./../models/task');
+const MODAL = require('../modal');
+const request = require('../request');
 
 module.exports = {
   async createTask(req, res) {
@@ -24,6 +26,16 @@ module.exports = {
       })
     } catch (e) {
       res.status(500).send(e)
+    }
+  },
+  async openModal(req, res) {
+    try {
+      const newModal = MODAL.modal;
+      console.log(req.body);
+      const { channel_id, user_id, trigger_id, user_name, team_id } = JSON.parse(req.body);
+      await request.openSlackModal(trigger_id, newModal);
+    } catch (e) {
+      res.status(500).send({ error: e });
     }
   }
 }
