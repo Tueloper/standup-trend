@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js --ignore tests",
     "heroku-postbuild": "npm run build",
-    "build": "babel src --out-dir build",
+    "build": "babel index.js build",
     "test": "jest"
   },
   "repository": "https://github.com/Tueloper/standup-trend.git",
